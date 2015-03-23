@@ -17,7 +17,7 @@ public class Menu{
 
     public void handleOption(int option) throws BibliotecaQuitException,InvalidOptionException {
         if(option<0 || option>menuItems.size())
-            throw new InvalidOptionException("Invalid Option! Try again."+System.lineSeparator());
+            throw new InvalidOptionException("Invalid Option! Try again........");
         menuItems.get(option - 1).performAction();
     }
 

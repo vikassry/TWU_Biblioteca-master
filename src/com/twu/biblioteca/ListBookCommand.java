@@ -12,10 +12,10 @@ public class ListBookCommand implements Command {
     }
 
     public void execute(){
-        ps.println(getBookList());
+        ps.println(getLibraryDetails());
     }
 
-    private String getBookList() {
+    private String getLibraryDetails() {
         String bookHistory = "";
         for(Book book : library){
             bookHistory += book.toString();

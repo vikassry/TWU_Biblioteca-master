@@ -12,6 +12,6 @@ public class Book {
 
     @Override
     public String toString() {
-        return name + "\t" + author +"\t"+publishedYear+System.lineSeparator();
+        return name + "\t" + author +"\t"+publishedYear +System.lineSeparator();
     }
 }
