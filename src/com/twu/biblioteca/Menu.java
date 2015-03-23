@@ -1,42 +1,28 @@
 package com.twu.biblioteca;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class Menu {
 
-    private Library library;
+public class Menu{
+    private List<MenuItem> menuItems;
 
-    public Menu(Library library) {
-        this.library = library;
+    public Menu() {
+        menuItems = new ArrayList<MenuItem>();
     }
 
-    void optionHandler(int option) {
-        switch (option) {
-            case 1:
-                showBooks();
-                break;
-            case 2:
-                System.exit(0);
-                break;
-            default:
-                System.out.println(" Invalid Option ! Try Again\n");
-        }
+    public void addItem(MenuItem item){
+        menuItems.add(item);
     }
 
-    public String getMenu() {
-        return  "Menu\n"+"1. List of Books\n"+"2. Quit";
+    public void handleOption(int option) throws BibliotecaQuitException,InvalidOptionException {
+        if(option<0 || option>menuItems.size())
+            throw new InvalidOptionException("Invalid Option! Try again."+System.lineSeparator());
+        menuItems.get(option - 1).performAction();
     }
 
-    private void showBooks() {
-        System.out.println(showBooksList(library.getBooksList()));
-    }
 
-    private String showBooksList(List<Book> allBooks) {
-        String bookHistory = "";
-        for(Book book : allBooks){
-            bookHistory += book.toString();
-        }
-        return bookHistory;
+    public List<MenuItem> iterator() {
+        return new ArrayList<MenuItem>(menuItems);
     }
-
 }

@@ -1,8 +1,5 @@
 package com.twu.biblioteca;
 
-/**
- * Created by vikass on 3/21/2015.
- */
 public class Book {
     private String name;
     private String author;
@@ -15,6 +12,6 @@ public class Book {
 
     @Override
     public String toString() {
-        return name + "\t" + author +"\t"+publishedYear+"\n";
+        return name + "\t" + author +"\t"+publishedYear+System.lineSeparator();
     }
 }
