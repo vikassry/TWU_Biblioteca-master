@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/TWU_Biblioteca-master.iml" filepath="$PROJECT_DIR$/TWU_Biblioteca-master.iml" />
-      <module fileurl="file://$PROJECT_DIR$/biblioteca.iml" filepath="$PROJECT_DIR$/biblioteca.iml" />
     </modules>
   </component>
 </project>
