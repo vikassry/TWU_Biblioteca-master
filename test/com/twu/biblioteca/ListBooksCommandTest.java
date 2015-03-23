@@ -7,7 +7,7 @@ import java.io.PrintStream;
 
 import static org.junit.Assert.*;
 
-public class ListBookCommandTest {
+public class ListBooksCommandTest {
     @Test
     public void executeWillPrintTheListOfBooks(){
         String libraryInformation = "The Adventures\tCanon\t1995\r\n"+
@@ -17,8 +17,8 @@ public class ListBookCommandTest {
         library.addMultipleBooks();
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(baos);
-        ListBookCommand listBookCommand = new ListBookCommand(library,printStream);
-        listBookCommand.execute();
+        ListBooksCommand listBooksCommand = new ListBooksCommand(library,printStream);
+        listBooksCommand.execute();
         assertEquals(libraryInformation, baos.toString());
     }
 }
