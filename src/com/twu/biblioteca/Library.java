@@ -6,9 +6,9 @@ import java.util.List;
 /**u
  * Created by vikass on 3/21/2015.
  */
-public class BookStore {
+public class Library {
     List<Book> bookList;
-    public BookStore() {
+    public Library() {
         bookList = new ArrayList<Book>();
     }
 
