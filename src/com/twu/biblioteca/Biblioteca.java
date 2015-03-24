@@ -16,13 +16,13 @@ public class Biblioteca {
     }
 
     public String getWelcome() {
-        return "Welcome to Biblioteca";
+        return "Welcome to Biblioteca"+System.lineSeparator();
     }
 
     public void run(){
-        menu.addItem(new MenuItem("List Books",new ListBookCommand(library,System.out)));
+        menu.addItem(new MenuItem("List Books",new ListBooksCommand(library,System.out)));
         menu.addItem(new MenuItem("Quit",new QuitCommand()));
-        System.out.println(getWelcome()+"\n");
+        System.out.println(getWelcome());
         Scanner sc = new Scanner(System.in);
         while(keepRunning){
             System.out.println(showMenu());
