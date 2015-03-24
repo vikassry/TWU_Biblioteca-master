@@ -25,13 +25,14 @@ public class Library implements Iterable<Book>{
         return bookList.iterator();
     }
 
-    public String checkOutBook(Book book,String customerName){
+    public String checkOutBook(Book book,String customerName) throws BookNotAvailableException{
         if(isAvailable(book)){
             bookList.remove(book);
             BookEntry entry = new BookEntry(customerName,new Date(),book);
             entries.addEntry(entry);
+            return "Thank You! Enjoy the book\n";
         }
-        return "Successful checkOut";
+        throw new BookNotAvailableException("That book is not available.\n");
     }
 
     public Boolean isAvailable(Book book) {

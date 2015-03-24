@@ -20,12 +20,12 @@ public class Biblioteca {
 
 
     public void run(){
-
-        menu.addItem(new MenuItem("List Books",new ListBookCommand(library,System.out)));
-        menu.addItem(new MenuItem("Quit",new QuitCommand()));
-        library.add(new Book("The Adventures","Canon",1995));
-        library.add(new Book("Wings Of Fire","APJ Kalam",1996));
-        library.add(new Book("Ramayan","valmiki",1997));
+        library.add(new Book("The Adventures", "Canon", 1995));
+        library.add(new Book("Wings Of Fire", "APJ Kalam", 1996));
+        library.add(new Book("Ramayan", "valmiki", 1997));
+        menu.addItem(new MenuItem("List Books", new ListBookCommand(library, System.out)));
+        menu.addItem(new MenuItem("Quit", new QuitCommand()));
+        menu.addItem(new MenuItem("CheckOut Books", new CheckOutCommand(library,"vikya")));
         System.out.println(getWelcome());
         Scanner sc = new Scanner(System.in);
         while(keepRunning){
