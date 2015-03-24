@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class Biblioteca {
@@ -42,8 +43,8 @@ public class Biblioteca {
     public String showMenu(){
         String menuList ="Menu:\n";
         int i = 0;
-        for (MenuItem item : menu.iterator()) {
-            menuList += (++i)+". "+ item.toString()+System.lineSeparator();
+        for (MenuItem item : menu) {
+            menuList += (++i) + ". " + item.toString() + System.lineSeparator();
         }
         return menuList;
     }
