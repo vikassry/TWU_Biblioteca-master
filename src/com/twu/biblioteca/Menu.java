@@ -16,7 +16,7 @@ public class Menu implements Iterable<MenuItem> {
         menuItems.add(item);
     }
 
-    public void handleOption(int option) throws BibliotecaQuitException,InvalidOptionException {
+    public void handleOption(int option) throws BibliotecaQuitException, InvalidOptionException {
         if(option<0 || option>menuItems.size())
             throw new InvalidOptionException("Invalid Option! Try again......."+System.lineSeparator());
         menuItems.get(option - 1).performAction();

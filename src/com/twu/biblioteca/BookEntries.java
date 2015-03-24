@@ -14,4 +14,12 @@ public class BookEntries {
     public void addEntry(BookEntry entry){
         entries.add(entry);
     }
+
+    public Boolean isEntryValid(BookEntry bookEntry){
+        return entries.contains(bookEntry);
+    }
+
+    public void remove(BookEntry entry){
+        entries.remove(entry);
+    }
 }

@@ -43,6 +43,13 @@ public class LibraryTest {
     public void checkOutBookThrowsBookNotAvailableExceptionWhenBookNotFound() throws BookNotAvailableException {
         thrown.expect(BookNotAvailableException.class);
         thrown.expectMessage("That book is not available.\n");
-        library.checkOutBook(new Book("Pet Detective","Poojara",2020),"pchopra");
+        library.checkOutBook(new Book("Pet Detective", "Poojara", 2020), "pchopra");
+    }
+    
+    @Test
+    public void returnBookToCustomerWillGiveAMessageOfSuccessfulreturning() throws BookNotValidException, BookNotAvailableException {
+        library.checkOutBook(canon, "vikya");
+        String expected = "Thank you for returning the book";
+        assertEquals(library.returnBook(canon, "vikya"), expected);
     }
 }

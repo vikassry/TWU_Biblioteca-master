@@ -26,6 +26,7 @@ public class Biblioteca {
         menu.addItem(new MenuItem("List Books", new ListBookCommand(library, System.out)));
         menu.addItem(new MenuItem("Quit", new QuitCommand()));
         menu.addItem(new MenuItem("CheckOut Books", new CheckOutCommand(library,"vikya")));
+        menu.addItem(new MenuItem("ReturnBook",new ReturnBookCommand(library,"vikya")));
         System.out.println(getWelcome());
         Scanner sc = new Scanner(System.in);
         while(keepRunning){

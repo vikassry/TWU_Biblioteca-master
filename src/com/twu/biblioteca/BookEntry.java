@@ -1,16 +1,22 @@
 package com.twu.biblioteca;
 
-import java.util.Date;
-
 public class BookEntry{
     private String customerName;
-    private Date date;
     private Book book;
 
-    public BookEntry(String customerName, Date date, Book book) {
+    public BookEntry(String customerName, Book book) {
         this.customerName = customerName;
-        this.date = date;
         this.book = book;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof BookEntry)) return false;
+
+        BookEntry entry = (BookEntry) o;
+
+        return !(book == null || customerName == null || entry.book == null || entry.customerName == null)
+                && !(!customerName.equals(entry.customerName) || !book.equals(entry.book));
+    }
 }
