@@ -1,6 +1,5 @@
 package com.twu.biblioteca;
 
-import java.util.Iterator;
 import java.util.Scanner;
 
 public class Biblioteca {
@@ -10,7 +9,6 @@ public class Biblioteca {
 
     public Biblioteca() {
         library = new Library();
-        library.addMultipleBooks();
         menu =  new Menu();
         keepRunning = true;
     }
@@ -20,8 +18,11 @@ public class Biblioteca {
     }
 
     public void run(){
-        menu.addItem(new MenuItem("List Books",new ListBooksCommand(library,System.out)));
+        menu.addItem(new MenuItem("List Books",new ListBookCommand(library,System.out)));
         menu.addItem(new MenuItem("Quit",new QuitCommand()));
+        library.add(new Book("The Adventures","Canon",1995));
+        library.add(new Book("Wings Of Fire","APJ Kalam",1996));
+        library.add(new Book("Ramayan","valmiki",1997));
         System.out.println(getWelcome());
         Scanner sc = new Scanner(System.in);
         while(keepRunning){

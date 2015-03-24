@@ -1,10 +1,11 @@
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 
-public class Menu{
+public class Menu implements Iterable<MenuItem> {
     private List<MenuItem> menuItems;
 
     public Menu() {
@@ -17,12 +18,13 @@ public class Menu{
 
     public void handleOption(int option) throws BibliotecaQuitException,InvalidOptionException {
         if(option<0 || option>menuItems.size())
-            throw new InvalidOptionException("Invalid Option! Try again."+System.lineSeparator());
+            throw new InvalidOptionException("Invalid Option! Try again......."+System.lineSeparator());
         menuItems.get(option - 1).performAction();
     }
 
 
-    public List<MenuItem> iterator() {
-        return new ArrayList<MenuItem>(menuItems);
+    public Iterator<MenuItem> iterator() {
+        return menuItems.iterator();
     }
+
 }
