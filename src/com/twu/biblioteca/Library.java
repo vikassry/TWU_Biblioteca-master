@@ -42,7 +42,7 @@ public class Library implements Iterable<Book>{
         if(available){
             entries.remove(bookEntry);
             bookList.add(book);
-            return  "Thank you for returning the book";
+            return  "Thank you for returning the book\n";
         }
         throw new BookNotValidException("That is not a valid book to return.\n");
     }
