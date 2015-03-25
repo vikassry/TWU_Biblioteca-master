@@ -4,10 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-/**u
- * Created by vikass on 3/21/2015.
- */
-public class Library implements Iterable<Book>{
+public class Library implements Iterable<Book> {
     private List<Book> bookList;
     private BookEntries entries;
 
@@ -42,7 +39,7 @@ public class Library implements Iterable<Book>{
         if(available){
             entries.remove(bookEntry);
             bookList.add(book);
-            return  "Thank you for returning the book\n";
+            return  "Thank you for returning the book"+System.lineSeparator();
         }
         throw new BookNotValidException("That is not a valid book to return.\n");
     }
@@ -51,5 +48,31 @@ public class Library implements Iterable<Book>{
         return  bookList.contains(book);
     }
 
+    public void executeCommand(Command command) throws BookNotAvailableException, BookNotValidException, BibliotecaQuitException, InvalidOptionException {
+        String className = command.getClass().getName();
+        className = className.substring(className.lastIndexOf('.')+1);
+        switch (className){
+            case "ListBookCommand" :
+                System.out.println(getLibraryDetails());
+                break;
+            case "CheckOutCommand" :
+                System.out.println(checkOutBook(command.execute(),"vikas"));
+                break;
+            case "ReturnBookCommand" :
+                System.out.println(returnBook(command.execute(),"vikas"));
+                break;
+            case "QuitCommand" :
+                throw new BibliotecaQuitException("Thank you. Visit Again");
+            default:
+                throw new InvalidOptionException("Invalid Option! Try again......."+System.lineSeparator());
+        }
+    }
 
+    private String getLibraryDetails() {
+        String bookHistory = "";
+        for(Book book : bookList){
+            bookHistory += book.toString();
+        }
+        return bookHistory;
+    }
 }

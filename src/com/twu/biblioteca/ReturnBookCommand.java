@@ -4,26 +4,13 @@ import java.util.Scanner;
 
 
 public class ReturnBookCommand implements Command {
-    private  Library library;
-    private String customerName;
-
-    public ReturnBookCommand(Library library, String customerName) {
-        this.library = library;
-        this.customerName = customerName;
+    private String name;
+    public ReturnBookCommand(String name) {
+        this.name = name;
     }
 
     @Override
-    public void execute() throws BibliotecaQuitException{
-        Book book = getBook();
-        try {
-            String message = library.returnBook(book, customerName);
-            System.out.println(message);
-        } catch ( BookNotValidException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    private Book getBook() {
+    public Book execute(){
         Scanner sc = new Scanner(System.in);
         System.out.println("ENTER BOOK NAME:---");
         String name = sc.nextLine().trim();
@@ -32,5 +19,10 @@ public class ReturnBookCommand implements Command {
         System.out.println("ENTER BOOK PUBLICATION YEAR:---");
         int year = sc.nextInt();
         return new Book(name,author,year);
+    }
+
+    @Override
+    public String toString() {
+        return "Return Book";
     }
 }

@@ -49,7 +49,7 @@ public class LibraryTest {
     @Test
     public void returnBookToCustomerWillGiveAMessageOfSuccessfulreturning() throws BookNotValidException, BookNotAvailableException {
         library.checkOutBook(canon, "vikya");
-        String expected = "Thank you for returning the book";
+        String expected = "Thank you for returning the book"+System.lineSeparator();
         assertEquals(library.returnBook(canon, "vikya"), expected);
     }
 }

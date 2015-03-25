@@ -2,7 +2,13 @@ package com.twu.biblioteca;
 
 public class QuitCommand implements Command {
 
-    public void execute() throws BibliotecaQuitException {
-        throw new BibliotecaQuitException("Thank You! Visit again");
+    public Book execute() {
+        return new Book("dvdv","vxdf",21312);
+//        throw new BibliotecaQuitException("Thank You! Visit again");
+    }
+
+    @Override
+    public String toString() {
+        return "Quit";
     }
 }
